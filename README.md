@@ -2,11 +2,12 @@
 
 You have a `String` of JavaScript code. How can you execute it? This is a playground for testing various dynamic script execution methods in Node.js and what features they may or may not support.
 
+This is research for [`import-module-string`](https://github.com/zachleat/import-module-string) (the approach I currently use and recommend for ESM code) and [`node-retrieve-globals`](https://github.com/zachleat/node-retrieve-globals/) (legacy but more CommonJS friendly).
+
 * [`vm` Node.js documentation](https://nodejs.org/docs/latest/api/vm.html)
 * [MDN docs for `eval`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval)
 * [`import("data:…")` approach from `2ality.com`](https://2ality.com/2019/10/eval-via-import.html)
 * [`import("blob:…")` approach suggested by David Bushnell](https://github.com/dbushell/dinossr/blob/main/src/bundle/import.ts#L13) (not currently supported in Node.js but works in Deno!)
-* Research for [`node-retrieve-globals`](https://github.com/zachleat/node-retrieve-globals/) and [`import-module-string`](https://github.com/zachleat/import-module-string).
 
 <table>
   <thead>
@@ -42,7 +43,7 @@ You have a `String` of JavaScript code. How can you execute it? This is a playgr
       <td>Yes</td>
       <td>Yes</td>
       <td>Yes<sup>1</sup></td>
-      <td>No</td>
+      <td>No<sup>6</sup></td>
     </tr>
 		<tr>
       <td><code>import</code> (ESM-only)</td>
@@ -50,7 +51,7 @@ You have a `String` of JavaScript code. How can you execute it? This is a playgr
       <td>No<sup>4</sup></td>
       <td>No<sup>4</sup></td>
       <td>Yes<sup>1</sup></td>
-      <td>No</td>
+      <td>No<sup>7</sup></td>
     </tr>
 		<tr>
       <td>Dynamic <code>import()</code></td>
@@ -58,7 +59,7 @@ You have a `String` of JavaScript code. How can you execute it? This is a playgr
       <td>Yes</td>
       <td>Yes<sup>2</sup></td>
       <td>Yes<sup>1</sup></td>
-      <td>No</td>
+      <td>No<sup>7</sup></td>
     </tr>
 		<tr>
       <td>Top level <code>async</code> or <code>await</code></td>
@@ -85,7 +86,9 @@ Notes:
 2. Requires `vm.constants.USE_MAIN_CONTEXT_DEFAULT_LOADER` an experimental Node feature added in v21.7.0, v20.12.0. Any use outputs an `ExperimentalWarning` to the console.
 3. Requires the code to be wrapped in an `(async () => {})()` IIFE wrapper.
 4. Can use `esm-import-transformer` to transform static `import` to dynamic `import()` or `require`: https://github.com/zachleat/esm-import-transformer
-5. Probably shimmable but I think that would cause more confusion than it’s worth.
+5. Probably shimmable but not worth it.
+6. `require` is shimmable in Node.js via [`node:module#createRequire`](https://nodejs.org/docs/latest/api/module.html#modulecreaterequirefilename)
+7. `import` of runtime built-ins (e.g. `node:` prefixed modules in Node.js) are allowed.
 
 ## Alternate methods
 
