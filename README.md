@@ -17,7 +17,9 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <th><code>Function()</code></th>
       <th><code>vm.Script</code></th>
       <th><code>vm.Module</code></th>
-      <th><code>import("data:…")</code> <code>import("blob:…")</code></th>
+      <th><code>import("data:…")</code> (or <code>blob:…</code>)</th>
+      <th><code>npm:node-retrieve-globals</code></th>
+      <th><code>npm:import-module-string</code></th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +30,8 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>Yes</td>
       <td>No<sup>5</sup></td>
       <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
     </tr>
 		<tr>
       <td><code>export</code> (ESM-only)</td>
@@ -35,6 +39,8 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>No</td>
       <td>No</td>
       <td>Yes<sup>1</sup></td>
+      <td>Yes</td>
+      <td>No</td>
       <td>Yes</td>
     </tr>
     <tr>
@@ -44,6 +50,8 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>Yes</td>
       <td>Yes<sup>1</sup></td>
       <td>No<sup>6</sup></td>
+      <td>Yes</td>
+      <td>Yes</td>
     </tr>
 		<tr>
       <td><code>import</code> (ESM-only)</td>
@@ -52,6 +60,8 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>No<sup>4</sup></td>
       <td>Yes<sup>1</sup></td>
       <td>No<sup>7</sup></td>
+      <td>No</td>
+      <td>Yes</td>
     </tr>
 		<tr>
       <td>Dynamic <code>import()</code></td>
@@ -60,6 +70,8 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>Yes<sup>2</sup></td>
       <td>Yes<sup>1</sup></td>
       <td>No<sup>7</sup></td>
+      <td>Yes</td>
+      <td>Yes</td>
     </tr>
 		<tr>
       <td>Top level <code>async</code> or <code>await</code></td>
@@ -68,6 +80,8 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>Faux<sup>3</sup></td>
       <td>Yes<sup>1</sup></td>
       <td>Yes</td>
+      <td>Faux<sup>3</sup></td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><em>Can</em> leak to global scope</td>
@@ -75,6 +89,8 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>Yes</td>
       <td>No</td>
       <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
       <td>Yes</td>
     </tr>
   </tbody>
