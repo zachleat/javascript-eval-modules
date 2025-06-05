@@ -9,6 +9,8 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
 * [`import("data:…")` approach from `2ality.com`](https://2ality.com/2019/10/eval-via-import.html)
 * [`import("blob:…")` approach suggested by David Bushnell](https://github.com/dbushell/dinossr/blob/main/src/bundle/import.ts#L13) (not currently supported in Node.js but works in Deno!)
 
+## Runtime Native Methods
+
 <table>
   <thead>
     <tr>
@@ -90,7 +92,7 @@ Notes:
 6. `require` is shimmable in Node.js via [`node:module#createRequire`](https://nodejs.org/docs/latest/api/module.html#modulecreaterequirefilename)
 7. `import` of runtime built-ins (e.g. `node:` prefixed modules in Node.js) are allowed.
 
-## Npm packages
+## npm Packages
 
 <table>
   <thead>
