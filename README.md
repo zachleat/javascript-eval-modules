@@ -23,7 +23,7 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
     </tr>
   </thead>
   <tbody>
-		<tr>
+    <tr>
       <td>Assign <code>module.exports</code> (CommonJS-only)</td>
       <td>Yes</td>
       <td>No</td>
@@ -31,7 +31,7 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>No<sup>5</sup></td>
       <td>No</td>
     </tr>
-		<tr>
+    <tr>
       <td><code>export</code> (ESM-only)</td>
       <td>No</td>
       <td>No</td>
@@ -47,7 +47,7 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>Yes<sup>1</sup></td>
       <td>No<sup>6</sup></td>
     </tr>
-		<tr>
+    <tr>
       <td><code>import</code> (ESM-only)</td>
       <td>No<sup>4</sup></td>
       <td>No<sup>4</sup></td>
@@ -55,7 +55,7 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>Yes<sup>1</sup></td>
       <td>No<sup>7</sup></td>
     </tr>
-		<tr>
+    <tr>
       <td>Dynamic <code>import()</code></td>
       <td>Yes</td>
       <td>Yes</td>
@@ -63,7 +63,7 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>Yes<sup>1</sup></td>
       <td>No<sup>7</sup></td>
     </tr>
-		<tr>
+    <tr>
       <td>Top level <code>async</code> or <code>await</code></td>
       <td>Faux<sup>3</sup></td>
       <td>Faux<sup>3</sup></td>
@@ -78,6 +78,14 @@ This is research for [`import-module-string`](https://github.com/zachleat/import
       <td>No</td>
       <td>No</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Runtime Compatibility</td>
+      <td>Node.js</td>
+      <td><em>Any</em></td>
+      <td>Node.js</td>
+      <td>Node.js</td>
+      <td><em>Any</em></td>
     </tr>
   </tbody>
 </table>
@@ -103,12 +111,12 @@ Notes:
     </tr>
   </thead>
   <tbody>
-		<tr>
+    <tr>
       <td>Assign <code>module.exports</code> (CommonJS-only)</td>
       <td>Yes</td>
       <td>No</td>
     </tr>
-		<tr>
+    <tr>
       <td><code>export</code> (ESM-only)</td>
       <td>No</td>
       <td>Yes</td>
@@ -118,17 +126,17 @@ Notes:
       <td>Yes</td>
       <td>Yes</td>
     </tr>
-		<tr>
+    <tr>
       <td><code>import</code> (ESM-only)</td>
       <td>No</td>
       <td>Yes</td>
     </tr>
-		<tr>
+    <tr>
       <td>Dynamic <code>import()</code></td>
       <td>Yes</td>
       <td>Yes</td>
     </tr>
-		<tr>
+    <tr>
       <td>Top level <code>async</code> or <code>await</code></td>
       <td>Faux<sup>3</sup></td>
       <td>Yes</td>
@@ -137,6 +145,11 @@ Notes:
       <td><em>Can</em> leak to global scope</td>
       <td>Yes</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Runtime Compatibility</td>
+      <td>Node.js</td>
+      <td><em>Any</em></td>
     </tr>
   </tbody>
 </table>
