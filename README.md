@@ -1,12 +1,12 @@
-# Script Evaluation in Node.js
+# Dynamic Script Evaluation in JavaScript
 
 You have a `String` of JavaScript code. How can you execute it? This is a playground for testing various dynamic script execution methods in Node.js and what features they may or may not support.
 
 * [`vm` Node.js documentation](https://nodejs.org/docs/latest/api/vm.html)
 * [MDN docs for `eval`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval)
-* Research for [`node-retrieve-globals`](https://github.com/zachleat/node-retrieve-globals/).
 * [`import("data:…")` approach from `2ality.com`](https://2ality.com/2019/10/eval-via-import.html)
 * [`import("blob:…")` approach suggested by David Bushnell](https://github.com/dbushell/dinossr/blob/main/src/bundle/import.ts#L13) (not currently supported in Node.js but works in Deno!)
+* Research for [`node-retrieve-globals`](https://github.com/zachleat/node-retrieve-globals/) and [`import-module-string`](https://github.com/zachleat/import-module-string).
 
 <table>
   <thead>
@@ -16,7 +16,7 @@ You have a `String` of JavaScript code. How can you execute it? This is a playgr
       <th><code>Function()</code></th>
       <th><code>vm.Script</code></th>
       <th><code>vm.Module</code></th>
-      <th><code>import("data:…")</code></th>
+      <th><code>import("data:…")</code> <code>import("blob:…")</code></th>
     </tr>
   </thead>
   <tbody>
