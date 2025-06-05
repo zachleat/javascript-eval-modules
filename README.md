@@ -1,8 +1,8 @@
 # Dynamic Script Evaluation in JavaScript
 
-You have a `String` of JavaScript code. How can you execute it? This is a playground for testing various dynamic script execution methods in Node.js and what features they may or may not support.
+You have a `String` of JavaScript code. How can you execute it? This is a playground for testing various dynamic script execution methods in Node.js and what features they support.
 
-This is research for [`import-module-string`](https://github.com/zachleat/import-module-string) (the approach I currently use and recommend for ESM code) and [`node-retrieve-globals`](https://github.com/zachleat/node-retrieve-globals/) (legacy but more CommonJS friendly).
+This is research for [`import-module-string`](https://github.com/zachleat/import-module-string) (the approach I currently use and recommend for ESM code) and [`node-retrieve-globals`](https://github.com/zachleat/node-retrieve-globals/) (legacy but more CommonJS friendly), whose features I have documented in a separate compatibility table below.
 
 * [`vm` Node.js documentation](https://nodejs.org/docs/latest/api/vm.html)
 * [MDN docs for `eval`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval)
