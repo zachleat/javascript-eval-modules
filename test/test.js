@@ -45,6 +45,25 @@ const allTests = {
 			"function",
 		]
 	},
+	"require-esm-from-cjs": {
+		code: `module.exports = require("@zachleat/noop/esm");`,
+		test: function(results, t) {
+			t.deepEqual(Object.keys(results), ["noop", "noopSync"]);
+		},
+		expectToPass: [
+			"vm-script",
+			"module-compile",
+		]
+	},
+	"require-esm-from-esm": {
+		code: `const { noop } = require("@zachleat/noop/esm"); export { noop };`,
+		test: function(results, t) {
+			t.deepEqual(Object.keys(results), ["noop"]);
+		},
+		expectToPass: [
+			...["SourceTextModule" in vm ? "vm-module" : undefined],
+		]
+	},
 	"export": {
 		code: `const a = 1; export { a };`,
 		test: function(results, t) {
