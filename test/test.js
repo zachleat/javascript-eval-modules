@@ -129,6 +129,18 @@ const allTests = {
 			// "function",
 		],
 	},
+	"expected to leak": {
+		code: `globalThis.c = 2;`,
+		test: function(results, t) {
+			t.is(globalThis.c, 2);
+		},
+		expectToPass: [
+			"data-uri-blob",
+			"data-uri",
+			"module-compile",
+			"function",
+		],
+	},
 };
 
 function executeTestSuite(methodName, exec) {
