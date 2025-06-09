@@ -1,6 +1,7 @@
 import test from "ava";
 import vm from "node:vm";
-import { exec as dataUriBlob } from "../data-uri-blob.js";
+// Not supported in Node
+// import { exec as dataUriBlob } from "../data-uri-blob.js";
 import { exec as dataUri } from "../data-uri.js";
 import { exec as vmModule } from "../vm-module.js";
 import { exec as vmScript } from "../vm-script.js";
@@ -16,6 +17,7 @@ const allTests = {
 		},
 		expectToPass: [
 			"data-uri",
+			// "data-uri-blob", // Not yet supported in Node
 			...["SourceTextModule" in vm ? "vm-module" : undefined],
 			"vm-script",
 			"module-compile",
@@ -72,6 +74,7 @@ const allTests = {
 		},
 		expectToPass: [
 			"data-uri",
+			// "data-uri-blob", // Not yet supported in Node
 			...["SourceTextModule" in vm ? "vm-module" : undefined],
 		]
 	},
@@ -100,6 +103,7 @@ const allTests = {
 		},
 		expectToPass: [
 			"data-uri",
+			// "data-uri-blob", // Not yet supported in Node
 			...["SourceTextModule" in vm ? "vm-module" : undefined],
 			"vm-script",
 			"module-compile",
@@ -135,8 +139,8 @@ const allTests = {
 			t.is(globalThis.c, 2);
 		},
 		expectToPass: [
-			"data-uri-blob",
 			"data-uri",
+			// "data-uri-blob", // Not yet supported in Node,
 			"module-compile",
 			"function",
 		],
@@ -153,8 +157,8 @@ function executeTestSuite(methodName, exec) {
 	}
 }
 
-executeTestSuite("data-uri-blob", dataUriBlob);
 executeTestSuite("data-uri", dataUri);
+// executeTestSuite("data-uri-blob", dataUriBlob); // Not yet supported in Node
 executeTestSuite("vm-module", vmModule);
 executeTestSuite("vm-script", vmScript);
 executeTestSuite("module-compile", moduleCompile);
