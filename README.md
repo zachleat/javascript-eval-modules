@@ -156,7 +156,7 @@ Notes:
 
 ## Alternate methods
 
-* A lot of the pain here is due to unstable `vm.Module`. If you already have access to a transpiler (e.g. `esbuild`), use that to output CommonJS code and run it through `Module#_compile` to bypass current limitations with dynamic ESM in Node.js.
+* A lot of the pain here is due to an experimental `vm.Module`. If you already have access to a bundler (e.g. `esbuild`), use that to output CommonJS code and run it through `Module#_compile` to bypass current limitations with dynamic ESM in Node.js.
 	* [Vite writes a temporary file to the filesystem](https://github.com/vitejs/vite/blob/77d5165e2f252bfecbb0eebccc6f04dc8be0c5ba/packages/vite/src/node/config.ts#L1172-L1184) to workaround this issue.
 	* Some [more discussion on Mastodon](https://fediverse.zachleat.com/@zachleat/111580482330587997).
 
